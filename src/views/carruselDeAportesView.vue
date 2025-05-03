@@ -11,28 +11,7 @@
 		<!-- s<button type="submit">Mostrar</button> -->
 	</div>
 
-  <!-- Panel de Notificaciones  -->
-		<div class="container-pnl">	
-			<div  v-for="(material,idx) in materiales" :key="idx" class="panel">
-					<div class="container-pnl">
-						 <h2>Material Reciente</h2>
-						 <p>El Usuario<strong>{{material.apellido}}</strong></p>
-						 <p>Publicó recientemente<strong>{{material.titulo}}</strong></p>
-						 <textarea name="extract"  class="resumen" readonly>
-						 	  {{material.file.value}}
-						 </textarea>
-						   <li><a :href="material.enlace || '#'"><strong>Material Completo</strong></a></li>
-						   <p>En la Fecha<strong>{{material.fecha ||  fechaActual}}</strong></p>
-					</div>
-			</div>
-			<!--  Si no hay Materiales -->
-		  <div  v-if="materiales.length===0" class="panel">
-		  	<div class="modal-box">
-		  		<h2>Sin Publicaciónes aún</h2>
-		  		<p>No se econtraron Materiales en este momento.</p>
-		  	</div>
-		  </div>
-		</div> 
+	<!--<PanelMatEducativo>--> <PanelMatEducativo/> 
 
 	<!-- Maquetado static d  panels d articls
   <div class="container-pnl">
@@ -48,31 +27,8 @@
 </template >
 
 <script setup>
-	 import { ref, onMounted } from 'vue';
-
-	 const materiales = ref([]); 
-	 const fechaActual = new Date().toLocaleDateString();
-	 //  const buscarAlumno = localStorage.getItem('alumno-buscado') || "";
-	const buscarAlumno = 'Saucedo';
-
-	 onMounted(()=>{
-	 	 					 const aportes = JSON.parse(localStorage.getItem('materiales-educativos'))||[];
-	 	 					 const users = JSON.parse(localStorage.getItem('alumnos-registrados'))||[];
-
-	 	 						const resultado = users.find(alum => alum.lnme === buscarAlumno);
-
-	 	 					if(resultado){
-	 	 							const materials_filtrados = aportes.filter(mat => mat.autor === resultado.usuario);
-
-		 	 					materiales.value = materials_filtrados.map(elemen => ({
-		 	 						apellido: resultado.lnme,
-		 	 						titulo:elemen.title,
-		 	 						file:elemen.file,
-		 	 						fecha:elemen.date || fechaActual,
-		 	 						enlace:elemen.link || '#'
-	 	 					  }));
-	 	 					}
-	 });
+	import PanelMatEducativo from '../components/PanelMatEducativo.vue';
+	 // });
 
 </script>
 
@@ -124,28 +80,12 @@
 	  background-color: #145da0;
 	}
 
-	.container-pnl {
-	  display: grid;
-	  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-	  gap: 1.5rem;
-	}
-
-	.panel {
-	  background-color: #ffffff;
-	  border-left: 6px solid #44bd32; /* Verde */
-	  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-	  border-radius: 12px;
-	  overflow: hidden;
-	  transition: transform 0.2s;
-	}
-
-	.panel:hover {
-	  transform: translateY(-3px);
-	}
+	/*
+	.panel:hover 
 
 	.modal-box {
 	  padding: 1rem 1.2rem;
-	}
+	}*/
 
 	.modal-box h2 {
 	  color: #44bd32; /* Verde */

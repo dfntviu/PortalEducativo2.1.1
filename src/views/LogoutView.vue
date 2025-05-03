@@ -14,8 +14,8 @@
 
 	onMounted(()=>{
 		 //Espera 1.5 segundos p/mostrar el mensaje y redirigir
-		setTimeout(()=>{
-		   localStorage.clear();
+		setTimeout(()=>{   //elimina todos los registros del LStorage
+		   localStorage.clear();   
 			router.push('/loggearse'); 
 		},1700);
 	});

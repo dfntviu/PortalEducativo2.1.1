@@ -8,12 +8,14 @@
     		<p class="student-inf"><span>E-mail:{{alumno.email}}</span> </p><!-- /erno1 tenia correo, es email- -->
     		<p class="student-inf"><span>Edad: {{alumno.age}}</span></p>
     	</div>
+    	 <h3  class="valid_dat" v-if="notifyUserMsg"> Por Favor Agrega el primer Alumno desde nuestro Formulario</h3>
     </div>
  </template>
 
  <script setup>
  			import  {ref, onMounted} from 'vue';
 				    const alumnos = ref([]);  //erno-3 es identico al valor de la directiva
+				    const notifyUserMsg = ref(false);
 				    // const image = ref();
 
 				  onMounted(()=>{
@@ -21,7 +23,8 @@
 				  			if(data){
 				  				  alumnos.value = JSON.parse(data);
 				  			}else{
-				      		alert("NO HAY Alumnos registrados Aún");
+				  				 notifyUserMsg.value = true;  //cambiar bandera
+				      		// alert("NO HAY Alumnos registrados Aún");
 				  			}
 
 				  });
@@ -103,5 +106,12 @@
     font-weight: bold;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
   }
+
+   .valid_dat{
+   	 color: crimson;
+   	 font-size: 18px;
+   	 border: 2px  dashed #2ab;
+   	 background-color: #f9da;
+   }
   
  </style>

@@ -16,23 +16,30 @@
       <router-link to="/carga-material-educ2">Subir Contenido</router-link>  |
       <router-link to="/ar-notificaciones-pub">Ver Notificaciónes</router-link> |
       <router-link to="/carruseles-publicados">Publicaciones</router-link>  |
-      <router-link to=/profile-alums>Perfil Alumno</router-link>|,   
+      <router-link to=/profile-alums>Perfil Alumno</router-link>|, 
+      <router-link to='/faq-alumnos'>|FAQ Profesores|</router-link>
       <router-link to=/loggout>Salir del Portal</router-link>|,
-      <router-link to=/reg-teachs>Registro Profesores</router-link>|, 
+      <router-link to=/reg-teachs>Registro Profesor</router-link>|,
+      <router-link to=/profile-teacher>Perfil Profesor</router-link>|, 
+      <router-link to=/pnls-pnl-puntuar-material>Califcar Publicacion</router-link>|,
+      <router-link to='/faq-profesores'>|FAQ Alumnos|</router-link>   
       <!-- <router-link to="/form-email">Auxiliar</router-link>  enab for testing-->
     </div>
      <!--  <router-link to="/carga-material-educ">Subir Contenido</router-link>  |
       <router-link to="/rev-material-educ">Consultar Material</router-link>  | -->
   </nav>
+      <div>
+        <li><a href=""><router-link to="/loggearse-profesores">Profesores</router-link></a></li>
+      </div>
   <router-view/>
 </template>
 
 <style scoped>
    /* Estilo  UAEMex */
-#logo-univ{
-  height: 71px;
-  width: 132px;
-}
+  #logo-univ{
+    height: 71px;
+    width: 132px;
+  }
   #sp-menu {
     height: 60px;
     padding: 0 20px;

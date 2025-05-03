@@ -55,11 +55,11 @@
 		  	 alumno.value = data[0];
 				console.log('Datos Cargados Reactivos:',data[0]);   //(cambiar a la 1er posicion > 0)
 			  	// if(data[0]){
-			  	 	datosProf.nom_prof =  data[9].name || ''; 
-			  	 	datosProf.ap_matr =  data[9].lnme || '';
-			  	 	datosProf.carrer =  data[9].degree || '';
-			  	 	datosProf.edad =  data[9].age || '';
-			  	 	datosProf.e_mail =  data[9].email || '';
+			  	 	datosProf.nom_prof =  data[8].name || ''; 
+			  	 	datosProf.ap_matr =  data[8].lnme || '';
+			  	 	datosProf.carrer =  data[8].degree || '';
+			  	 	datosProf.edad =  data[8].age || '';
+			  	 	datosProf.e_mail =  data[8].email || '';
 	         // console.log('Nm-',data[0].name,'ap',data[0].lnme,'Ed -',  'Carrera:',data[0].degree, data[0].age,'core-',data[0].email);
 		  	}
 	}	

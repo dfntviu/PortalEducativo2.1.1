@@ -22,3 +22,10 @@ export  async function validarCredenciales( {username, password}){
     }); // #Fin-Promesa
 
  }
+
+  // P1 Cambiar la logica y en lugar de ser un correo, un arreglo de sesiones de alumno
+
+  // P2 Vincular el Storage con profileAlumns pq renderice la sesion
+
+  // P3 esto sera util p mas procesos como, el rol d profesores: Muestre contenido esp del alumno
+     //validamos la sesion y no el registro del Alumno -> registerAlumnsView.js

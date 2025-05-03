@@ -3,6 +3,8 @@
 	<div>
 		  <h5 class="subtit-gnrl">Instrucción: Debes llenar el Formulario por completo</h5>
 	</div>
+	<NetStatus/>  <!-- Componente verifica el Estado de la red-->
+	<router-view/>
 	<!-- Maquetado del Formulario -->
 	<form @submit.prevent="sendForma">  <!--evitar la redireccion-->
 		<div class="card">
@@ -154,7 +156,12 @@
 </style>
 
 <script>
+	 import NetStatus from '@/components/NetStatus.vue';
 	 export default {
+	 	components:{
+ 		  	NetStatus,
+ 		},
+	 	
 	 	data(){
 	 	  return{
 	 	  	datosForma: {

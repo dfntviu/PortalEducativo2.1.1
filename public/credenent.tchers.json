@@ -1,0 +1,29 @@
+{
+  "profesores": [
+    { "correo": "profesor1@institucion.com", "contrasena": "contrasena123", "nombre": "Juan", "rol": "profesor" },
+    { "correo": "profesor2@institucion.com", "contrasena": "contrasena456", "nombre": "Ana", "rol": "profesor" },
+    { "correo": "profesor3@institucion.com", "contrasena": "abc123", "nombre": "Luis", "rol": "profesor" },
+    { "correo": "profesor4@institucion.com", "contrasena": "contraseña789", "nombre": "Marta", "rol": "profesor" },
+    { "correo": "profesor5@institucion.com", "contrasena": "12345", "nombre": "Jose", "rol": "profesor" },
+    { "correo": "profesor6@institucion.com", "contrasena": "qwerty123", "nombre": "Pedro", "rol": "profesor" },
+    { "correo": "profesor7@institucion.com", "contrasena": "contraseña321", "nombre": "Lucia", "rol": "profesor" },
+    { "correo": "profesor8@institucion.com", "contrasena": "profesor888", "nombre": "Roberto", "rol": "profesor" },
+    { "correo": "profesor9@institucion.com", "contrasena": "abcd1234", "nombre": "Elena", "rol": "profesor" },
+    { "correo": "profesor10@institucion.com", "contrasena": "123abc456", "nombre": "Carlos", "rol": "profesor" },
+    { "correo": "profesor11@institucion.com", "contrasena": "clave987", "nombre": "Sofia", "rol": "profesor" },
+    { "correo": "profesor12@institucion.com", "contrasena": "qwerty987", "nombre": "Manuel", "rol": "profesor" },
+    { "correo": "profesor13@institucion.com", "contrasena": "123password", "nombre": "Clara", "rol": "profesor" },
+    { "correo": "profesor14@institucion.com", "contrasena": "pass123", "nombre": "Adrián", "rol": "profesor" },
+    { "correo": "profesor15@institucion.com", "contrasena": "contraseñaprof", "nombre": "Hugo", "rol": "profesor" },
+    { "correo": "profesor16@institucion.com", "contrasena": "secreta123", "nombre": "Teresa", "rol": "profesor" },
+    { "correo": "profesor17@institucion.com", "contrasena": "pass654", "nombre": "Carmen", "rol": "profesor" },
+    { "correo": "profesor18@institucion.com", "contrasena": "sistemas2021", "nombre": "Diego", "rol": "profesor" },
+    { "correo": "profesor19@institucion.com", "contrasena": "r7y8t9e0", "nombre": "Gabriela", "rol": "profesor" },
+    { "correo": "profesor20@institucion.com", "contrasena": "admin123", "nombre": "Sergio", "rol": "profesor" },
+    { "correo": "profesor21@institucion.com", "contrasena": "password1", "nombre": "Juanito", "rol": "profesor" },
+    { "correo": "profesor22@institucion.com", "contrasena": "profess123", "nombre":"Marta", "rol": "profesor" },
+    { "correo": "profesor23@institucion.com", "contrasena": "clavepass", "nombre": "Raúl", "rol": "profesor" },
+    { "correo": "profesor24@institucion.com", "contrasena": "palabra123", "nombre":"Felipe", "rol": "profesor" },
+    { "correo": "profesor25@institucion.com", "contrasena": "clave98765", "nombre":"Vero", "rol": "profesor" }
+  ]
+}

@@ -7,64 +7,180 @@
 	<form @submit.prevent="sendFormTeach">  <!--evitar la redireccion-->
 		<!-- <div class="card"> -->
 			<div id="inf-personal" class="card sect-regist">
-				<h1 class="tit-sec">Personal</h1>
-		      <input  v-model="datosForma" class="ent-text" type="text" placeholder="Nombre">
-		      <input  v-model="datosForma" class="ent-text" type="text" placeholder="Apellido Materno">
-		      <input  v-model="datosForma" class="ent-text" type="text" placeholder="Apellido Paterno">
+				<h1 class="tit-sec">Datos Personal(es)</h1>
+		      <input  v-model="p_datosFrmPrf.nomb" class="ent-text" type="text" placeholder="Nombre">
+		      <input  v-model="p_datosFrmPrf.ap_materno" class="ent-text" type="text" placeholder="Apellido Materno">
+		      <input  v-model="p_datosFrmPrf.ap_paterno" class="ent-text" type="text" placeholder="Apellido Paterno">
+		      
+		      <input   v-model="p_datosFrmPrf.direccion" class="ent-text"  type="text" placeholder="Dirección">
+		      <input   v-model="p_datosFrmPrf.telephone" type="number" class="ent-text" placeholder="Teléfono">
 		      <label class="subtit-gnrl">Genero</label>
 		      <label>Masculino</label>
-		      <input type="radio" value="Femenino"  class="ent-radio" name="genere">
+		      <input   v-model="p_datosFrmPrf.genero"  type="radio" value="Masculino"  class="ent-radio" name="genere">
 		      <label for="">Femenino</label>
-		      <input type="radio" value="Masculino" class="ent-radio" name="genere">
-		      <input   type="text" placeholder="Generando Usuario" class="ent-text" @clic="generateUser">
+		      <input  v-model="p_datosFrmPrf.genero"	type="radio" value="Femenino" class="ent-radio" name="genere">
+		 <input   v-model="p_datosFrmPrf.eminstitut" type="text" class="ent-text" placeholder="Correo Institucional"  @clik="generateUser">
 			</div>
 
 			<div id="inf-academica" class="card sect-regist">
-				<h1 class="tit-sec">Académica</h1>
-				<input type="number" class="ent-text"  placeholder="Numero de Cuenta">
+				<h1   class="tit-sec">Datos Académicos</h1>
+				<input v-model="ac_datosFrmPrf.cta"  type="number" class="ent-text"  placeholder="Numero de Cuenta">
 		          <label class="subtit-gnrl">Seleccine su grado</label>
-			    <select class="ent-text" v-model="opcSelected" id="opciones">
-			   	   <option v-for="opcion in opciones" :key="opcion.id" :value="opcion.valor">
+			    <select class="ent-text" v-model="ac_datosFrmPrf.opcSelected" id="opciones">
+			   	 <option   v-for="opcion in opciones" :key="opcion.id" :value="opcion.valor">
 			   	    		{{opcion.valor}}
 			   	   </option>
 			    </select>
-		   		<input  v-model="datosForma" class="ent-text" type="email" placeholder="Correo Academico">
+		   		<input  v-model="ac_datosFrmPrf.tit_prof"  class="ent-text" type="text" placeholder="Titulo Profesional">
+		   		<input  v-model="ac_datosFrmPrf.egreso" class="ent-text" type="text" placeholder="Institución de Egreso">
+			</div>
+
+			<div id="inf-trabajo" class="card sect-regist">
+				<h1 class="tit-sec">Datos de Trabajo</h1>
+				<input  v-model="jb_datosFrmPrf.n_materias" type="number" class="ent-text"  placeholder="Num. Materias Impartidas">
+			   	<label class="subtit-gnrl">Jornada Laboral</label>
+			   	<select  v-model="jb_datosFrmPrf.tipo_jornada" id="" class="ent-text"> 
+			   		<option  value="Completa">Completa</option>
+			   		<option  value="Parcial">Parcial</option>
+			   		<option  value="Horas x Catedra">Horas x Catedra</option>
+			   	</select>
+			   	<label class="subtit-gnrl" >*Fecha de Ingreso</label>
+			   	<input  v-model="jb_datosFrmPrf.fecha" type="date" class="ent-text">
+			   	 	<label class="subtit-gnrl">Areá Académica</label>
+			   	<select  v-model="jb_datosFrmPrf.area"name="" id="" class="ent-text">
+			   		<option  value="Desarrollo">Desarrollo</option>
+			   		<option  value="Config. de Redes">Config. de Redes</option>
+			   		<option  value="Adm. de Sistemas">Adm. de Sistemas</option>
+			   	</select>
 			</div>
 		  
 		    <div id="inf-registro" class="card sect-regist">
 		    	<h1 class="tit-sec">Datos Sesión</h1>
 		      <label class="subtit-gnrl">Fecha de Registro</label>
-		      <input type="date" class="ent-text" placeholder>
+		      <input v-model='sn_datosFrmPrf.fecha' type="date" class="ent-text" placeholder>
 
-		     <input type="number" class="ent-text" placeholder="Total de Aportaciones">
+		     <input  v-model='sn_datosFrmPrf.n_aportacion'  type="number" class="ent-text" placeholder="Total de Aportaciones">
 		    	     <label class="subtit-gnrl" for="tit_tpo-mat">Material mas comun</label>
-				    <select class="ent-text" name="" id="">
-					     <option value="">PDF</option>
-					     <option value="">DOCX</option>
-					     <option value="">PPTX</option>
+				    <select  v-model="sn_datosFrmPrf.formato"class="ent-text" name="" id="">
+					     <option  value="PDF">PDF</option>
+					     <option  value="DOCX">DOCX</option>
+					     <option  value="PPTX">PPTX</option>
 				   </select> 
 		    </div>
 		 <button type="submit">Registrar Prof</button>
 	</form>
-
-	<!-- Maquetado de la ventana Modal -->
+	
+</template>
+<!-- Maquetado de la ventana Modal 
 	<div  v-if="mostrar_modal" class="modal">
-		<div class="modal-box">
+		<div class="modal-box">-->
 			<!-- <span class="modal-close" @click="closeModal">&times;</span>
 			  <h3>Datos Capturados</h3>
 			  <p>Nombre:<strong>{{datosForma.name}} </strong></p>   
-			  <p>Apellido: <strong>{{datosForma.lnme}} </strong></p> -->
+			  <p>Apellido: <strong>{{datosForma.lnme}} </strong></p> 
 		</div>
-	</div>
-</template>
+	</div>-->
 
-<style scoped>
+
+<script setup>
+   import  { p_datosFrmPrf, ac_datosFrmPrf, jb_datosFrmPrf,sn_datosFrmPrf } from  './profesorHelpers.js'; 
+   import {userProfesorData} from '../composable/userProfesorData.js';
+	import { ref } from 'vue';
+
+	  // Definit de las opciones como un array reactive
+	const opcSelected = ref('');  // Val selecct
+	const opciones = ref([
+	  { id: 0, valor: 'Ing. Mecánico', texto: 'Opción 1' },
+	  { id: 1, valor: 'Ing. Electronico', texto: 'Opción 2' },
+	  { id: 2, valor: 'Ing. Civil', texto: 'Opción 3' },
+	  { id: 3, valor: 'Mtro Ciencias Computacion', texto: 'Opción 4' }
+	]);
+
+	function sendFormTeach(){
+		 userProfesorData().loadProfesorData()
+		userProfesorData().addAllDataProfessor()
+	}
+
+		// === OBJETOS REACTIVOS === 
+	   /* function initDataAllCategProfessor(){ // 0. Setear los datos del arreglo
+				// PERSONALES
+			const p_datosFrmPrf = ref({
+						nomb: '',
+						ap_materno: '',
+						ap_paterno: '',
+						direction: '',
+						telephone: null,
+						genero: '',
+						eminstitut: ''	
+					});
+			// ACADEMICOS
+			const ac_datosFrmPrf = ref({
+						 cta: null,
+						 opcSelected: '',
+						 tit_prof: '',
+						 egreso: ''
+					});
+			// TRABAJO
+			const jb_datosFrmPrf = ref ({
+						 n_materias: null,
+						 tpo_jornada: '' ,
+						 fecha: '',
+						 area: ''
+					});
+			// SESIÓN
+			const sn_datosFrmPrf =ref({
+						fecha: '',
+						n_aportacion:  null,
+						formato: '',
+					});
+
+			return {p_datosFrmPrf,ac_datosFrmPrf,jb_datosFrmPrf,sn_datosFrmPrf}
+	    }*
+		// MODAL
+		const mostrar_modal = ref(false);
+
+		 function cleanProfesores(){//no lleva this son globlaes en el otro si, porque estaba dentro sin setup
+			p_datosFrmPrf.value = {
+				nomb: '',
+					ap_materno: '',
+					ap_paterno: '',
+					direction: '',
+					telephone: '' ,
+					genero: '',
+					eminstitut: ''
+			};
+
+			ac_datosFrmPrf.value = {
+				cta: '',
+			    opcion: '',
+			    tit_prof: '',
+			    egreso: ''
+			};
+
+			jb_datosFrmPrf.value = {
+				 n_materias: '' ,
+					 tpo_jornada: '' ,
+					 fecha: '',
+					 area: ''
+			};
+
+			sn_datosFrmPrf.value = {
+				fecha: '',
+				n_aportacion: '',
+				formato: '',
+			}
+
+		}*/
+		
+</script>
+
+ <style scoped>
 	
 	.card {
 	  margin: 0 auto; /* Centra horizontalmente */
 	  max-width: 550px;        /* Ancho máximo de la tarjeta */
       width: 458px;
-      height: 388px;
+      height: 448px;
       border: 1px solid #ccc;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -145,23 +261,5 @@
 			display: block;
     	    margin: auto auto;
   		} 
-</style>
-
-<script setup>
-	import { ref } from 'vue';
-
-	  // Definit de las opciones como un array reactive
-	const opcSelected = ref('');  // Val selecct
-	const opciones = ref([
-	  { id: 0, valor: 'Ing. Mecánico', texto: 'Opción 1' },
-	  { id: 1, valor: 'Ing. Electronico', texto: 'Opción 2' },
-	  { id: 2, valor: 'Ing. Civil', texto: 'Opción 3' },
-	  { id: 3, valor: 'Mtro Ciencias Computacion', texto: 'Opción 4' }
-	]);
-
-	/* (sin setup) export default {
-	  data() { return{ opcSelected: '', opciones: [
-	  	  { id: 0, valor: 'Ing. Mecánico', texto: 'opcion1' },{ id: 1, valor: 'Ing. Electronico', texto: 'Opción2' },
-	  	  { id: 2, valor: 'Ing. Civil', texto: 'Opción3' }, { id: 3, valor: 'Mtro Ciencias Computacion', texto: 'op-4'}
-	  	  ]  }  }  } */
-</script>
+</style> 
+	

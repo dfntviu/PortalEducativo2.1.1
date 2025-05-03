@@ -7,7 +7,7 @@
 			  <li><a href=""> <strong>Material Completo</strong></a></li>
 			  <p>En la Fecha: <strong>15/04/2024</strong> </p>
 		</div> -->
-
+	 
 	<div class="pnl-aparente">
 		<h1 id="title">Notificaciónes Acerca del Material</h1>
 		  <div v-for="(notif, index) in notificaciones" :key="index" class="inf-emergente">
@@ -20,10 +20,10 @@
 
 			<a :href="notif.archivo" target="_blank">Ver Material</a>
 		  </div>
+
 		<!-- <div class="inf-emergente">
 			<p><strong>inf-al_repescto</strong>rmontes perteneciente  a IEL 
 			 </p>
-			   
 			<p><strong>inf-al_repescto-cont-digital</strong>
 			Publicó el PDF {aprende Arduino en 1 mes}</p>
 			<a href="/carruseles-publicados">Ir</a> 
@@ -38,6 +38,7 @@
 		</div>-->
 		
 	</div>
+	<h3  class="valid_dat" v-if="notifyUserMsg"> Contenido Vacío¿Te gustaria subir el primer Material Educativo, en el Portal? </h3>
 	<!-- <div class="pagination">
 		  <a href="" class="paginate">1 </a>  <a href="" class="paginate">2 </a>  <a href="" class="paginate">3 </a>
 	</div> -->
@@ -66,6 +67,14 @@
 		  text-transform: capitalize; 
 		  color:#4A5F4D;
     }
+
+    .valid_dat{
+   	  color: crimson;
+   	  font-size: 18px;
+   	  padding: 5px auto;
+   	  border: 2px  dashed #2ab;
+   	  background-color: #f9da;
+   }
 </style>
 
 <script setup> 
@@ -74,6 +83,7 @@
 	// Vinculamos el script originario con la vista de notificaciones(que renderizará)
 	
 	const notificaciones = ref([]);
+	const notifyUserMsg = ref(false);
 	
 	onMounted(()=>{
 	   
@@ -92,10 +102,15 @@
 	   		 		fecha: material.date,
 	   		 		archivo: material.filename  //el nombre, prob'e alojado me lo desp en otra ventana, (variar por fileUrl)
 	   		 	});
+	   		 	notifyUserMsg.value = false; //ocultar el msg.
 	   		}
-
+	   			
 	    });
-	});
-
+	});// Desp de que se ejecute multiples veces. asegurarse de que ya culmino de subir material
+		if(notificaciones.value.length === 0){
+			notifyUserMsg.value = true; // Oculta el mensaje, hasta q al menos se suba un material
+		}else{
+			notifyUserMsg.value = false; // si sigue sin datos
+		}
 	
 </script>
