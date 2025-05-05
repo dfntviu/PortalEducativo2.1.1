@@ -16,6 +16,7 @@
       <router-link to="/carga-material-educ2">Subir Contenido</router-link>  |
       <router-link to="/ar-notificaciones-pub">Ver Notificaciónes</router-link> |
       <router-link to="/carruseles-publicados">Publicaciones</router-link>  |
+      <router-link to="/contact-page">*Contactános(nw)</router-link> |
       <router-link to=/profile-alums>Perfil Alumno</router-link>|, 
       <router-link to='/faq-alumnos'>|FAQ Profesores|</router-link>
       <router-link to=/loggout>Salir del Portal</router-link>|,

@@ -12,7 +12,7 @@
 	 };
 	/* Se deberá Modificar el script principal-js[router.js].  Usar la herencia para c/usuario de sesion en el    ruteo. Colocaré el code
 	   correspondiente como comentario, pues muy posiblemente podria perdir los vinculos
-	   relacionados a las vistas - alumnos y profesores -vistas, el modelo GPT 4, podria alentarse o tener error
+	   relacionados a las vistas - alumnos y profesores -vistas, la guia del  mockup design , podria generar error
 	   en el servidor. Por está razón tendré una copia here. */
 
 	/* import LoginView from '@views/LoginView.vue';
@@ -48,5 +48,30 @@
 	 		 	    	{ path: 'logout', component: LogOutProfesor }
 	 		 	    ]
 	 		 }
-	 	];*/
+
+	 		 > Debera restructurarse el Directorio del Proyecto de la Siguiente manera:
+
+	 		 ├── src/
+	 		 |	 ├── components/
+	 		 |	 |   ├── NavegacionAlumno.vue
+	 		 |	 |   ├── NavegacionProfesor.vue
+	 		 |   |   ├── views/
+	 		 |   |       ├── LoginView.vue
+	 		 |   |       ├── alumnos/
+	 		 |   |       |    ├── SubirContenidoView.vue
+	 		 |	 |       |    ├── RevContenidoView.vue
+	 		 |	 |       └── profesores/
+	 		 |	 |		     ├── RegProfesorView.vue
+	 		 |   |           └── RevMaterialView.vue
+	 		 |   └──  router/
+	 		 |   |    └── index.js
+	 		 |   └── App.vue
+	 		 |   └── main.js 
+
+	 		  > Finalmente, se agregarán los layouts para diferente Incio de Sesion:
+
+			  ├── layouts/
+			  |    ├── AlumnoLayout.vue
+			  |    └── ProfesorLayout.vue
+	 	];*/		 
 </script>

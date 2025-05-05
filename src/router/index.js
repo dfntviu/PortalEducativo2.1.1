@@ -102,8 +102,12 @@ const routes = [
     name: 'faq-alumnos', 
     path: '/faq-alumnos',
     component:()=> import('../views/faqAlumnoView.vue')
+   },
+   {
+    name: 'contact-page',
+    path: '/contact-page',
+    component: ()=> import('../informationContact.vue')
    }
-   
    /*{  comentaron por q son inonsistentes en su lugar ...-educ2
     name: 'rev-material-educ',
     path: '/rev-material-educ',
