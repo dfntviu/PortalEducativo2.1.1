@@ -18,7 +18,8 @@
 		   <input  v-model="datosForma.degree" class="ent-long" type="text"  placeholder="Carrera (I-CARR)">
 		   <input  v-model="datosForma.age" class="ent-long" type="number" placeholder="Edad (Deberá +18) ">
 		   <input  v-model="datosForma.email" class="ent-long" type="email" placeholder="Correo">
-		   
+		   <input  v-model="datosForma.passwd" class="ent-long" type="password" placeholder="Elija su Contraseña">
+		   <!-- Contrasena, aniadido recientemente [May 12th] -->
 		   <div class="space-btn">
 		   	<button type="submit">Envíar</button>
 		   </div>
@@ -170,6 +171,7 @@
 			 degree: '',
 			 age: '',
 			 email: '',
+			 passwd: '' //#aniadido recientemente
 	 	   },
 	 		mostrar_modal: false,
 	 		datosGuardados: null,
@@ -182,7 +184,7 @@
 			sendForma(){
 				// menos es mas, ya aseguro el email, cualq. validacion no interrumple el flujo
 				this.consolidarEmail();
-				 	  	 const {name,lnme,age,degree,email} = this.datosForma;
+				 	  	 const {name,lnme,age,degree,email,passwd} = this.datosForma;
                   // Aqui no llamar a cosoli..., porque entra en juego la validacion
 	 	  	   if (!name.trim() || !lnme.trim() || !age  || !degree || !email.trim()){
 	 	  	   	 alert('No es posible enviar, completa todos los campos');
@@ -233,6 +235,7 @@
 				 age: '',
 				 degree: '',
 				 email: '',
+				 passwd: '',
 	 	   	   };  //es el momento ideal 1° limpia el formulario y desp descomp los datos capturad's, 
 	 	   	   this.clearData();  
 	 		},

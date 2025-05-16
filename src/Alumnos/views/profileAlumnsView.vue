@@ -37,16 +37,16 @@
     const alumno = ref(null);
     // const datosCargados = ref(false); -> {active with f(n) renderX..}
 
-	  // Definit de las opciones como un objeto vacio
-   const datosProf = reactive ({
+	  // Definir los valores, como un obj vacio
+   	const datosProf = reactive ({
       	   nom_prof: '', 
       	    ap_matr: '',  
       	   carrer: '',
       	     edad: null,
       	   e_mail: ''
       });
-   	  // validacion por Indice del [LStge - array]
-	function changeInfBasic(){
+   	  // validacion por Indice del (LStge - array) ##Unic'e  habilitar  para  realizar testeo y/o pruebas##
+	/** function changeInfBasic(){
 		console.log('Cargando los Datos del Alumno',);
 
 		const data = JSON.parse(localStorage.getItem('alumnos-registrados'));
@@ -62,21 +62,21 @@
 			  	 	datosProf.e_mail =  data[8].email || '';
 	         // console.log('Nm-',data[0].name,'ap',data[0].lnme,'Ed -',  'Carrera:',data[0].degree, data[0].age,'core-',data[0].email);
 		  	}
-	}	
-	// validacion por credencial de Sesion
+	}	**/
 
+	// Modulo para validar las credenciales de Sesion -> reactivas de la Forma de [Registro de Alumnos]
     function renderXSessionInit(){
-    	//  inicializar bandera
+    	//  inicializar bandera, elimniar espacios > [1]
     	// #const datosCargados = ref(false) [no activar];
-    	 const email_usuario = localStorage.getItem('usuario-loggeado');
-    	 const list_usuarios = JSON.parse(localStorage.getItem('alumnos-registrados'));
+    	 const email_usuario = localStorage.getItem('usuario_loggin')?.trim();  // [1]
+    	 const list_usuarios = JSON.parse(localStorage.getItem('alumnos-registrados'))||[];
 
-    	  if(!email_usuario || !list_usuarios){
+    	  if(!email_usuario || !list_usuarios.length === 0){
     	  	 alert('Error: No se Encontró una Sesión de Alumno activa');
     	  	   return
     	  }
     	  	// Buscar en todos los registers del LStorage
-    	   const  usuarioActivo = list_usuarios.find(ac => ac.email === email_usuario);
+    	   const  usuarioActivo = list_usuarios.find(ac => ac.email.trim() === email_usuario.toLowerCase());
 
     	   if(!usuarioActivo){
     	   	  alert('Lo Siento: El correo no corresponde con ningun Alumno Registrado');
@@ -92,7 +92,8 @@
 			  	 	const datosCargados = true;
     }
 		onMounted(()=>{
-			changeInfBasic();
+			// changeInfBasic();
+			renderXSessionInit();
 		});
 	 
 	 //Dec. constantes Locales

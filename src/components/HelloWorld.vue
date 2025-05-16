@@ -8,7 +8,7 @@
   </div>
   <section class="redirection">
     <span>
-      <a href="/about"> <h6>Acerca de Nosotros</h6> </a>
+      <!-- <a href="/src/informationContact.vue"> <h6>Comunicate con Nosotros</h6> </a> -->
     </span>
   </section>
   <!-- el tag <p> solo puede contener texto y elementos inline (como <span>, <a>, etc.), pero no elementos block como <h1>-<h6>, <div>, <section>, etc. -->

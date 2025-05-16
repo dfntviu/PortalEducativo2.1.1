@@ -1,38 +1,21 @@
 <template>
-  <!-- Block of tags new -->
 
-  <nav class="nav-links d-none d-lg-blog" role="navigation">
-    <div id="sp-menu" class="#sp-menu d-flex">
-      <img src="../src/assets/logo.fi-uamex.png" id="logo-univ" alt="portal.educ" >
+  <!-- Block of tags new -->  
+  <!-- <nav class="nav-links d-none d-lg-blog" role="navigation"> -->
+    <div class="bg-nav-links d-none d-lg-block" >
+      <img src="./assets/logo.fi-uamex.png" id="logo-univ" alt="portal.educ" >
+      <!-- <div> muestre aqui </div> -->
     </div>
-
-    <div class="nav-links d-none d-lg-block">
-      <router-link to="/">Inicio</router-link> |
-      <router-link to="/about">Nosotros</router-link> |
-      <router-link to=/loggearse>Iniciar Sesión</router-link> |
-      <router-link to="/formulario-register">Formulario Registro</router-link> | 
-      <router-link to="/register-alumnos">Alumnos Registrados</router-link> |
-      <router-link to="/rev-material-educ2">Consultar Material</router-link>  |
-      <router-link to="/carga-material-educ2">Subir Contenido</router-link>  |
-      <router-link to="/ar-notificaciones-pub">Ver Notificaciónes</router-link> |
-      <router-link to="/carruseles-publicados">Publicaciones</router-link>  |
-      <router-link to="/contact-page">*Contactános(nw)</router-link> |
-      <router-link to=/profile-alums>Perfil Alumno</router-link>|, 
-      <router-link to='/faq-alumnos'>|FAQ Profesores|</router-link>
-      <router-link to=/loggout>Salir del Portal</router-link>|,
-      <router-link to=/reg-teachs>Registro Profesor</router-link>|,
-      <router-link to=/profile-teacher>Perfil Profesor</router-link>|, 
-      <router-link to=/pnls-pnl-puntuar-material>Califcar Publicacion</router-link>|,
-      <router-link to='/faq-profesores'>|FAQ Alumnos|</router-link>   
-      <!-- <router-link to="/form-email">Auxiliar</router-link>  enab for testing-->
-    </div>
-     <!--  <router-link to="/carga-material-educ">Subir Contenido</router-link>  |
-      <router-link to="/rev-material-educ">Consultar Material</router-link>  | -->
-  </nav>
-      <div>
-        <li><a href=""><router-link to="/loggearse-profesores">Profesores</router-link></a></li>
-      </div>
-  <router-view/>
+    <!-- <li><a href="/contactanos">Contactanos</a></li> infunction maybe margins of page, -->
+  <!-- </nav> -->
+  
+        <NavegacionAlumno     v-if="store.getters.isAlumno"/>
+        <NavegacionProfesores v-if="store.getters.isProfesor"/>
+      <router-view/>
+      
+      <!--<button @click="crearSesion"> Procesar</button> <div v-if-else="usoRol==''"> </div> --
+         <label for="estudiante">Estudiante</label><br> <input type="radio" name="rol" value="estudiante"  
+         id="Estudiante">  -->
 </template>
 
 <style scoped>
@@ -41,19 +24,9 @@
     height: 71px;
     width: 132px;
   }
-  #sp-menu {
-    height: 60px;
-    padding: 0 20px;
-    color: #fff !important;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase;
-  }
+  /*#sp-menu {  }*/
 
-  .nav-links {
+  .bg-nav-links {
     display: flex;
     flex-wrap: wrap;
     background-color: #006400; /* Verde institucional */
@@ -65,23 +38,10 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   }
 
-  .nav-links router-link {
-    color: #ffffff;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
+  /*.nav-links router-link { color: #ffffff; font-weight: 600; text-decoration: none; transition: color 0.3s ease;
+  } .nav-links router-link:hover { color: #ffd700; /* Dorado al pasar el mouse *s*   } .logo-link { display: flex; align-items: center; }*/
 
-  .nav-links router-link:hover {
-    color: #ffd700; /* Dorado al pasar el mouse */
-  }
-
-  .logo-link {
-    display: flex;
-    align-items: center;
-  }
-
-/* Responsive helpers */
+  /* Responsive helpers */
   .d-lg-block {
     display: block !important;
   }
@@ -108,3 +68,15 @@
     }
   }
 </style>
+  
+  <script setup>
+     
+     import { useStore } from 'vuex';
+    /* import      NavegacionAlumno from './Layouts/alumnosLayout.vue';  
+     import      NavegacionProfesores from './Layouts/profesoresLayout.vue';  */
+       import      NavegacionAlumno from      './components/NavegacionAlumno.vue';  
+      import   NavegacionProfesores from './components/NavegacionProfesores.vue';
+          // darLuzVereAlumno,
+          const store  = useStore();
+        
+  </script>

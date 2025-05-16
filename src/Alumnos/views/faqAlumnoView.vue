@@ -5,7 +5,7 @@
 	</div>
 </template>
 <script setup>
-	import FaqProfesoresAlumnos from '../components/FaqProfesoresAlumnos.vue';
+	import FaqProfesoresAlumnos from '../../components/FaqProfesoresAlumnos.vue';
 </script>
 <style>
 	.conten-alum{

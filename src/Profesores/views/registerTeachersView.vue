@@ -8,46 +8,46 @@
 		<!-- <div class="card"> -->
 			<div id="inf-personal" class="card sect-regist">
 				<h1 class="tit-sec">Datos Personal(es)</h1>
-		      <input  v-model="p_datosFrmPrf.nomb" class="ent-text" type="text" placeholder="Nombre">
-		      <input  v-model="p_datosFrmPrf.ap_materno" class="ent-text" type="text" placeholder="Apellido Materno">
-		      <input  v-model="p_datosFrmPrf.ap_paterno" class="ent-text" type="text" placeholder="Apellido Paterno">
+		      <input  v-model="datosProfesor.personal.nomb" class="ent-text" type="text" placeholder="Nombre">
+		      <input  v-model="datosProfesor.personal.ap_materno" class="ent-text" type="text" placeholder="Apellido Materno">
+		      <input  v-model="datosProfesor.personal.ap_paterno" class="ent-text" type="text" placeholder="Apellido Paterno">
 		      
-		      <input   v-model="p_datosFrmPrf.direccion" class="ent-text"  type="text" placeholder="Dirección">
-		      <input   v-model="p_datosFrmPrf.telephone" type="number" class="ent-text" placeholder="Teléfono">
+		      <input   v-model="datosProfesor.personal.direccion" class="ent-text"  type="text" placeholder="Dirección">
+		      <input   v-model="datosProfesor.personal.telephone" type="number" class="ent-text" placeholder="Teléfono">
 		      <label class="subtit-gnrl">Genero</label>
 		      <label>Masculino</label>
-		      <input   v-model="p_datosFrmPrf.genero"  type="radio" value="Masculino"  class="ent-radio" name="genere">
+		      <input   v-model="datosProfesor.personal.genero"  type="radio" value="Masculino"  class="ent-radio" name="genere">
 		      <label for="">Femenino</label>
-		      <input  v-model="p_datosFrmPrf.genero"	type="radio" value="Femenino" class="ent-radio" name="genere">
-		 <input   v-model="p_datosFrmPrf.eminstitut" type="text" class="ent-text" placeholder="Correo Institucional"  @clik="generateUser">
+		      <input  v-model="datosProfesor.personal.genero"	type="radio" value="Femenino" class="ent-radio" name="genere">
+		     <input   v-model="datosProfesor.personal.eminstitut" type="text" class="ent-text" placeholder="Correo Institucional"  @clik="generateUser">
 			</div>
 
 			<div id="inf-academica" class="card sect-regist">
 				<h1   class="tit-sec">Datos Académicos</h1>
-				<input v-model="ac_datosFrmPrf.cta"  type="number" class="ent-text"  placeholder="Numero de Cuenta">
+				<input v-model="datosProfesor.academico.cta"  type="number" class="ent-text"  placeholder="Numero de Cuenta">
 		          <label class="subtit-gnrl">Seleccine su grado</label>
-			    <select class="ent-text" v-model="ac_datosFrmPrf.opcSelected" id="opciones">
+			    <select class="ent-text" v-model="datosProfesor.academico.opcSelected" id="opciones">
 			   	 <option   v-for="opcion in opciones" :key="opcion.id" :value="opcion.valor">
 			   	    		{{opcion.valor}}
 			   	   </option>
 			    </select>
-		   		<input  v-model="ac_datosFrmPrf.tit_prof"  class="ent-text" type="text" placeholder="Titulo Profesional">
-		   		<input  v-model="ac_datosFrmPrf.egreso" class="ent-text" type="text" placeholder="Institución de Egreso">
+		   		<input  v-model="datosProfesor.academico.tit_prof"  class="ent-text" type="text" placeholder="Titulo Profesional">
+		   		<input  v-model="datosProfesor.academico.egreso" class="ent-text" type="text" placeholder="Institución de Egreso">
 			</div>
 
 			<div id="inf-trabajo" class="card sect-regist">
 				<h1 class="tit-sec">Datos de Trabajo</h1>
-				<input  v-model="jb_datosFrmPrf.n_materias" type="number" class="ent-text"  placeholder="Num. Materias Impartidas">
+				<input  v-model="datosProfesor.trabajo.n_materias" type="number" class="ent-text"  placeholder="Num. Materias Impartidas">
 			   	<label class="subtit-gnrl">Jornada Laboral</label>
-			   	<select  v-model="jb_datosFrmPrf.tipo_jornada" id="" class="ent-text"> 
+			   	<select  v-model="datosProfesor.trabajo.tipo_jornada" id="" class="ent-text"> 
 			   		<option  value="Completa">Completa</option>
 			   		<option  value="Parcial">Parcial</option>
 			   		<option  value="Horas x Catedra">Horas x Catedra</option>
 			   	</select>
 			   	<label class="subtit-gnrl" >*Fecha de Ingreso</label>
-			   	<input  v-model="jb_datosFrmPrf.fecha" type="date" class="ent-text">
+			   	<input  v-model="datosProfesor.trabajo.fecha" type="date" class="ent-text">
 			   	 	<label class="subtit-gnrl">Areá Académica</label>
-			   	<select  v-model="jb_datosFrmPrf.area"name="" id="" class="ent-text">
+			   	<select  v-model="datosProfesor.trabajo.area"name="" id="" class="ent-text">
 			   		<option  value="Desarrollo">Desarrollo</option>
 			   		<option  value="Config. de Redes">Config. de Redes</option>
 			   		<option  value="Adm. de Sistemas">Adm. de Sistemas</option>
@@ -57,11 +57,11 @@
 		    <div id="inf-registro" class="card sect-regist">
 		    	<h1 class="tit-sec">Datos Sesión</h1>
 		      <label class="subtit-gnrl">Fecha de Registro</label>
-		      <input v-model='sn_datosFrmPrf.fecha' type="date" class="ent-text" placeholder>
+		      <input v-model='datosProfesor.sesion.fecha' type="date" class="ent-text" placeholder>
 
-		     <input  v-model='sn_datosFrmPrf.n_aportacion'  type="number" class="ent-text" placeholder="Total de Aportaciones">
+		     <input  v-model='datosProfesor.sesion.n_aportacion'  type="number" class="ent-text" placeholder="Total de Aportaciones">
 		    	     <label class="subtit-gnrl" for="tit_tpo-mat">Material mas comun</label>
-				    <select  v-model="sn_datosFrmPrf.formato"class="ent-text" name="" id="">
+				    <select  v-model="datosProfesor.sesion.formato"class="ent-text" name="" id="">
 					     <option  value="PDF">PDF</option>
 					     <option  value="DOCX">DOCX</option>
 					     <option  value="PPTX">PPTX</option>
@@ -71,24 +71,14 @@
 	</form>
 	
 </template>
-<!-- Maquetado de la ventana Modal 
-	<div  v-if="mostrar_modal" class="modal">
-		<div class="modal-box">-->
-			<!-- <span class="modal-close" @click="closeModal">&times;</span>
-			  <h3>Datos Capturados</h3>
-			  <p>Nombre:<strong>{{datosForma.name}} </strong></p>   
-			  <p>Apellido: <strong>{{datosForma.lnme}} </strong></p> 
-		</div>
-	</div>-->
-
 
 <script setup>
-   import  { p_datosFrmPrf, ac_datosFrmPrf, jb_datosFrmPrf,sn_datosFrmPrf } from  './profesorHelpers.js'; 
+   import  {  datosProfesor, cleanProfesores } from  './profesorHelpers.js'; 
    import {userProfesorData} from '../composable/userProfesorData.js';
 	import { ref } from 'vue';
 
-	  // Definit de las opciones como un array reactive
-	const opcSelected = ref('');  // Val selecct
+	const { addAllDataProfessor, loadProfesorData} = userProfesorData();
+
 	const opciones = ref([
 	  { id: 0, valor: 'Ing. Mecánico', texto: 'Opción 1' },
 	  { id: 1, valor: 'Ing. Electronico', texto: 'Opción 2' },
@@ -97,14 +87,17 @@
 	]);
 
 	function sendFormTeach(){
-		 userProfesorData().loadProfesorData()
-		userProfesorData().addAllDataProfessor()
+		console.log("Datos llanos sin vue a guardar:", JSON.parse(JSON.stringify(datosProfesor.value)));
+		loadProfesorData()    // Guarda en el localStorage (los lee)
+		 addAllDataProfessor(); // Recarga si es necesario (imp)
+		  cleanProfesores();   // limpia las categorias de formularios
 	}
+
 
 		// === OBJETOS REACTIVOS === 
 	   /* function initDataAllCategProfessor(){ // 0. Setear los datos del arreglo
 				// PERSONALES
-			const p_datosFrmPrf = ref({
+			const datosProfesor = ref({
 						nomb: '',
 						ap_materno: '',
 						ap_paterno: '',
@@ -114,33 +107,33 @@
 						eminstitut: ''	
 					});
 			// ACADEMICOS
-			const ac_datosFrmPrf = ref({
+			const datosProfesor = ref({
 						 cta: null,
 						 opcSelected: '',
 						 tit_prof: '',
 						 egreso: ''
 					});
 			// TRABAJO
-			const jb_datosFrmPrf = ref ({
+			const datosProfesor = ref ({
 						 n_materias: null,
 						 tpo_jornada: '' ,
 						 fecha: '',
 						 area: ''
 					});
 			// SESIÓN
-			const sn_datosFrmPrf =ref({
+			const datosProfesor =ref({
 						fecha: '',
 						n_aportacion:  null,
 						formato: '',
 					});
 
-			return {p_datosFrmPrf,ac_datosFrmPrf,jb_datosFrmPrf,sn_datosFrmPrf}
+			return {datosProfesor,datosProfesor,datosProfesor,datosProfesor}
 	    }*
 		// MODAL
 		const mostrar_modal = ref(false);
 
 		 function cleanProfesores(){//no lleva this son globlaes en el otro si, porque estaba dentro sin setup
-			p_datosFrmPrf.value = {
+			datosProfesor.value = {
 				nomb: '',
 					ap_materno: '',
 					ap_paterno: '',
@@ -150,21 +143,21 @@
 					eminstitut: ''
 			};
 
-			ac_datosFrmPrf.value = {
+			datosProfesor.value = {
 				cta: '',
 			    opcion: '',
 			    tit_prof: '',
 			    egreso: ''
 			};
 
-			jb_datosFrmPrf.value = {
+			datosProfesor.value = {
 				 n_materias: '' ,
 					 tpo_jornada: '' ,
 					 fecha: '',
 					 area: ''
 			};
 
-			sn_datosFrmPrf.value = {
+			datosProfesor.value = {
 				fecha: '',
 				n_aportacion: '',
 				formato: '',
