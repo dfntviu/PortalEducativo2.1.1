@@ -27,7 +27,7 @@
 </template >
 
 <script setup>
-	import PanelMatEducativo from '../components/PanelMatEducativo.vue';
+	import PanelMatEducativo from '../../components/PanelMatEducativo.vue';
 	 // });
 
 </script>

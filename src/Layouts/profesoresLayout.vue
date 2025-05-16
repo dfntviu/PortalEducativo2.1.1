@@ -5,14 +5,14 @@
 	</div>
 </template>
 <script>
-	 import NavegacionAlumno from '@/compontents/NavegacionProfesores.vue';
+	 import NavegacionProfesores from '@/components/NavegacionProfesores.vue';
 
 	 export default{
-	 	components: {Navegacionrofesores}
+	 	components: {NavegacionProfesores}
 	 };
 	/* Se deberá Modificar el script principal-js[router.js].  Usar la herencia para c/usuario de sesion en el    ruteo. Colocaré el code
 	   correspondiente como comentario, pues muy posiblemente podria perdir los vinculos
-	   relacionados a las vistas - alumnos y profesores -vistas, la guia del  mockup design , podria generar error
+	   relacionados a las vistas - alumnos y profesores -vistas, el modelo GPT 4, podria generar error
 	   en el servidor. Por está razón tendré una copia here. */
 
 	/* import LoginView from '@views/LoginView.vue';

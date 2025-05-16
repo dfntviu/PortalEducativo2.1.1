@@ -7,7 +7,7 @@
 				<input type="password" class="password" placeholder="psql25 " v-model="formData.password">
  				<span v-if="formError.password" class="error" > {{formError.password}} </span>
 	 				 <button type="submit" :disabled="loading">Autenticarse</button>
-			  <router-link to="/formulario-register">Regístrate</router-link>   <!--siempre dentro-->
+			  <router-link to="/alumnos/formulario-reg">Regístrate</router-link>   <!--siempre dentro-->
 			</form>
 	   <!-- <a href="/formulario-test">Olvidaste la Contraseña</a> -->
 	  </div> 
@@ -75,6 +75,7 @@
   import { ref } from "vue";
   import { useRouter } from "vue-router";
   import { validarCredenciales } from "@/api/autenticarAlum.js";
+  // #import { loginaAlumno } from "@/api/darLuzVereAlumno.vue"; (not)
 
   export default {
   	name: "LoginView",
@@ -95,6 +96,11 @@
 	  	 	  		try{
 	  	 	  			loading.value = true;  //apert bandera
 
+	  	 	   /*		const response = await validarCredenciales({
+	  	 	  					username: formData.value.username,
+	  	 	  					password: formData.value.password
+	  	 	  			});  */
+
 	  	 	  			const response = await validarCredenciales({
 	  	 	  					username: formData.value.username,
 	  	 	  					password: formData.value.password
@@ -105,12 +111,12 @@
 	  	 	  			  // console.log("✅ La Autenticación fue Exitosa",parsear);
 
 	  	 	  			  // redireccionar a la subida del material
-	  	 	  			  router.push('/carga-material-educ2');
+	  	 	  			  this.router.push('/alumnos/load_material');
 	  	 	  		}catch(err){
 	  	 	  			alert("❌ Error al Autentificarse. Intenta nuevamente");
 	  	 	  				// console.error("❌ Error al Autentificarse. Intenta nuevamente",err.mesage);
 							// Se redirecciona así loggin o bien a la principal(seg. corresponda)
-	  	 	  				router.push('/about');
+	  	 	  				router.push('/alumnos/about');
 	  	 	  		}finally{
 	  	 	  			 loading.value = false; //clausura boleana
 	  	 	  		}
