@@ -1,30 +1,34 @@
-<template class="formulario-view">
-	<h2 class="tit-gnrl">Formulario | Registro de Alumnos</h2>
-	<div>
-		  <h5 class="subtit-gnrl">Instrucción: Debes llenar el Formulario por completo</h5>
-	</div>
-	<NetStatus/>  <!-- Componente verifica el Estado de la red-->
-	<router-view/>
+<template >
+	<section class="formulario-view">
+	 <DarkModeToggle/>	<!-- Cambio Nuevo Aplicado - Modo Nocturno		 -->
+    <!-- <router-view/> -->
+	  <h2 class="tit-gnrl">Formulario | Registro de Alumnos</h2>
+	  <div>
+	  	  <h5 class="subtit-gnrl">Instrucción: Debes llenar el Formulario por completo</h5>
+	  </div>
+	 <NetStatus/>  <!-- Componente verifica el Estado de la red-->
+	 <router-view/>
 	<!-- Maquetado del Formulario -->
-	<form @submit.prevent="sendForma">  <!--evitar la redireccion-->
-		<div class="card">
-			<!-- <div class="space-btn"> -->
-				<input  type="file" @change="onFileChange" accept="image/*" />
-    			<img v-if="imageData" :src="imageData" alt="Foto del alumno" width="150" />
-    			<button v-if="imageData" @click="borrarImagen">Borrar foto</button>
-			<!-- </div> -->
-		   <input  v-model="datosForma.name" class="ent-long" type="text" placeholder="Nombre">
-		   <input  v-model="datosForma.lnme" class="ent-long" type="text" placeholder="Apellido" @blur="guardarLastName">
-		   <input  v-model="datosForma.degree" class="ent-long" type="text"  placeholder="Carrera (I-CARR)">
-		   <input  v-model="datosForma.age" class="ent-long" type="number" placeholder="Edad (Deberá +18) ">
-		   <input  v-model="datosForma.email" class="ent-long" type="email" placeholder="Correo">
-		   <input  v-model="datosForma.passwd" class="ent-long" type="password" placeholder="Elija su Contraseña">
-		   <!-- Contrasena, aniadido recientemente [May 12th] -->
-		   <div class="space-btn">
-		   	<button type="submit">Envíar</button>
-		   </div>
-		</div>
-	</form>
+		<form @submit.prevent="sendForma" >  <!--evitar la redireccion-->
+			<div class="card">
+				<!-- <div class="space-btn"> -->
+					<input  type="file" @change="onFileChange" accept="image/*" />
+	    			<img v-if="imageData" :src="imageData" alt="Foto del alumno" width="150" />
+	    			<button v-if="imageData" @click="borrarImagen">Borrar foto</button>
+				<!-- </div> -->
+			   <input  v-model="datosForma.name" class="ent-long" type="text" placeholder="Nombre">
+			   <input  v-model="datosForma.lnme" class="ent-long" type="text" placeholder="Apellido" @blur="guardarLastName">
+			   <input  v-model="datosForma.degree" class="ent-long" type="text"  placeholder="Carrera (I-CARR)">
+			   <input  v-model="datosForma.age" class="ent-long" type="number" placeholder="Edad (Deberá +18) ">
+			   <input  v-model="datosForma.email" class="ent-long" type="email" placeholder="Correo">
+			   <input  v-model="datosForma.passwd" class="ent-long" type="password" placeholder="Elija su Contraseña">
+			   <!-- Contrasena, aniadido recientemente [May 12th] -->
+			   <div class="space-btn">
+			   	<button type="submit">Envíar</button>
+			   </div>
+			</div>
+		</form>
+	</section>
 
 	<!-- Maquetado de la ventana Modal -->
 	<div  v-if="mostrar_modal" class="modal">
@@ -158,9 +162,12 @@
 
 <script>
 	 import NetStatus from '@/components/NetStatus.vue';
+	 import DarkModeToggle from '@/utils/DarkModeToggle.vue';  //enabled focus dark
+
 	 export default {
 	 	components:{
  		  	NetStatus,
+ 		  	DarkModeToggle
  		},
 	 	
 	 	data(){

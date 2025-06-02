@@ -5,6 +5,9 @@
 	</div>
 	<!-- form Mockup Tachers  -->
 	<form @submit.prevent="sendFormTeach">  <!--evitar la redireccion-->
+		<!-- Aniadir Modo Obscuro -->
+		<DarkModeToggle/>
+	   <router-view/>
 		<!-- <div class="card"> -->
 			<div id="inf-personal" class="card sect-regist">
 				<h1 class="tit-sec">Datos Personal(es)</h1>
@@ -75,6 +78,7 @@
 <script setup>
    import  {  datosProfesor, cleanProfesores } from  './profesorHelpers.js'; 
    import {userProfesorData} from '../composable/userProfesorData.js';
+   import DarkModeToggle from '@/utils/DarkModeToggle.vue';
 	import { ref } from 'vue';
 
 	const { addAllDataProfessor, loadProfesorData} = userProfesorData();

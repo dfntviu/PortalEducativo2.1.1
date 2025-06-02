@@ -30,10 +30,9 @@
 
  	/*P1: Recuperar las credencias del Profesor */
 	 const email_user = localStorage.getItem('usuario_prof_loggin')?.trim();
-     const register_list =   localStorage.getItem('alumnos-registrados') ||'[]';
-
-     const professor_encontrado = register_list.find(alum => alum.email === usuario && alum.passwd === contrasenia );
-
+     const register_list_cte =   localStorage.getItem('profesores-data-categorias') ||'[]';
+     const professor_encontrado = register_list_cte.find(alum => personal.eminstitut=== usuario && personal.contrasena === contrasenia );
+      // Definir campo contraseña en el template de Registro [registerTeacherView.vue]
 
      // Paso 2:  Interpolar a los Alumnos registrados
        import {reactive}  from 'vue';

@@ -3,6 +3,7 @@ import App from './App.vue'
 // import App from '/App.bak.vue' 
 import store from './Store/indexs.js';  //new line (control de las mutaciones &estado)
 import router from './router'
+import '/main.css';  // #variar el fondo obscuro#
 
   // se uso(anadio) el store
 createApp(App).use(store).use(router).mount('#app') 

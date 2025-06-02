@@ -12,8 +12,9 @@
 
 <script >
 	import { useStore } from 'vuex';
-	import { ref } from 'vue';
+	import { ref, nextTick} from 'vue';  //aqui esta la clave del exito papa p1
 	import { useRouter } from 'vue-router';
+	// import { nextTick } from vue;
 
 
 	export default{
@@ -28,17 +29,26 @@
 
 			const handleLogin = async()=> {
 				try{
-					await store.dispatch('login', {usuario: username.value, contrasenia: password.value});
-					if(store.state.role === 'alumno'){
-						/* godEntryMsg.value = 'Acceso Permitido, Exitosamente';
-						  await nextTick();  #actualiza el DOM antes de redirigir */
+					await store.dispatch('login', 
+						{     usuario: username.value, 
+						  contrasenia: password.value
+						});
+						/** aqui esta la clave del exito papa p2, esto rompia todo el estado no le daba
+					un chance y cuando queria actualizar nunca ing. al if necesitaba actualizar el estado y posterior el DOM  **/
+					await nextTick();  //espera que el DOM y el estado reaccionen
+
+					if(store.state.role === 'alumno' ){
+						/* godEntryMsg.value = 'Acceso Permitido, Exitosamente';*/
 						router.push('/alumno')
 					}else if(store.state.role === 'profesor'){
 						 router.push('/profesor')
+					} else {
+						errorMsg.value = 'El Rol no ha sido reconocido';
 					}
 
 				}catch(error){
 					errorMsg.value = 'Credenciales incorrectas';
+					console.error('[handleLogin] Error en login ', error);
 				}
 			};
 					/* aniadir el Estado de satisfaccion al contral desde  su mutacion*/
